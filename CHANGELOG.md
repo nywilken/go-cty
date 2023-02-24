@@ -6,9 +6,8 @@
 > The following tags with support for `encoding/gob` have been recreated in this fork v1.11.0, v1.11.1, v1.12.0, and v1.12.1
 
 Jump to [v1.11.0](https://github.com/nywilken/go-cty/blob/main/CHANGELOG.md#1110-august-22-2022) for more details.
-=======
 
-# 1.13.0 (Unreleased)
+# 1.13.0 (February 23, 2023)
 
 ## Upgrade Notes
 
