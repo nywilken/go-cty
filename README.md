@@ -1,5 +1,11 @@
 # cty
 
+> **Warning**
+>
+> This fork has been created specifically for the packer-plugin-sdk. 
+>
+> Any usage beyond that is considered unsupported; any reported issues and/or maintenance is on the consumer. 
+
 `cty` (pronounced "see-tie", emoji: :eyes: :necktie:,
 [IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet): /si'tʰaɪ/)
 is a dynamic type system for applications written
