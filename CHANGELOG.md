@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 > **Note** This fork contains changes for the continued support of `encoding/gob`, which is no longer available in the upstream project starting from v1.11.0. 
 > Gob encoding for serializing cty.Type and cty.Value is still heavily relied on by the Packer Plugin SDK.
 > 
@@ -6,6 +7,10 @@
 > The following tags with support for `encoding/gob` have been recreated in this fork v1.11.0, v1.11.1, v1.12.0, and v1.12.1
 
 Jump to [v1.11.0](https://github.com/nywilken/go-cty/blob/main/CHANGELOG.md#1110-august-22-2022) for more details.
+
+# 1.13.2 (May 22, 2023)
+
+* `cty`: `IndexStep.Apply` will no longer panic if given a marked collection to traverse through. ([#160](https://github.com/zclconf/go-cty/pull/160)).
 
 # 1.13.1 (March 16, 2023)
 
