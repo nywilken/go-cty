@@ -2,9 +2,13 @@
 
 > **Warning**
 >
-> This fork has been created specifically for the packer-plugin-sdk. 
+> This is a temporary fork created specifically for github.com/hashicorp/packer-plugin-sdk. 
+> Usage beyond that is considered unsupported and subject to break when the fork is deleted.
+> 
+> Usage of this fork within the Packer plugin SDK is needed, while Packer moves away
+> from encoding/gob for cty.Value and cty.Type. Changes from upstream will be ported
+> on a as needed basis.
 >
-> Any usage beyond that is considered unsupported; any reported issues and/or maintenance is on the consumer. 
 
 `cty` (pronounced "see-tie", emoji: :eyes: :necktie:,
 [IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet): /si'tʰaɪ/)
