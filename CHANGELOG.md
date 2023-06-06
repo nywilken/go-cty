@@ -1,3 +1,12 @@
+> **Note** This fork contains changes for the continued support of `encoding/gob`, which is nolonger available in the upstream project starting from v1.11.0. 
+> Gob encoding for serializing cty.Type and cty.Value is still heavily relied on by the Packer Plugin SDK.
+> 
+> The v1.11.0 changes from the upstream CHANGELOG are listed below for users to understand what changed upstream but has been struck from this fork's CHANGELOG to denote that the changes have been reverted. 
+>
+> The following tags with support for `encoding/gob` have been recreated in this fork v1.11.0, v1.11.1, v1.12.0, and v1.12.1
+
+Jump to [v1.11.0](https://github.com/nywilken/go-cty/edit/main/CHANGELOG.md#1110-august-22-2022) for more details.
+
 # 1.12.1 (November 8, 2022)
 
 * `convert`: Will now produce correct type constraints when the input value is an empty collection and the target element type has optional attributes. In this case the conversion process must remove the optional attribute annotations because those are only for type conversion purposes and have no meaning when used in the type constraint for an empty collection. ([#143](https://github.com/zclconf/go-cty/pull/143))
@@ -18,6 +27,15 @@
 # 1.11.0 (August 22, 2022)
 
 ## Upgrade Notes
+This release reverts the upstream changes where support for `encoding/gob` were dropped. Gob encoding for serializing cty.Type and cty.Value is still heavily relied on by the Packer Plugin SDK, which is why this fork exists.
+
+The changes from the upstream CHANGELOG are made available below for referencing purposes but the changes have been reverted in this fork.
+
+~This release contains some changes to some aspects of the API that are either legacy or de-facto internal (from before the Go toolchain had an explicit idea of that). Any external module using these will experience these as breaking changes, but we know of no such caller and so are admitting these without a major release in the interests of not creating churn for users of the main API.~
+
+~**`encoding/gob` support utilities removed**: we added these as a concession to HashiCorp who wanted to try to send `cty` values over some legacy protocols/formats used by legacy versions of HashiCorp Terraform. In the end those efforts were not successful for other reasons and so no Terraform release ever relied on this functionality.!~
+
+~`encoding/gob` support has been burdensome due to how its unmarshaler interface is defined and so `cty` values and types are no longer automatically compatible with `encoding/gob`. Callers should instead use explicitly-implemented encodings, such as the built-in JSON and msgpack encodings or external libraries which use the public `cty` API to encode and decode.~
 
 * **cty now requires Go 1.18**: although the main API is not yet making any use of type parameters, we've begun to adopt it in the hope of improving the maintainability of some internal details, starting with the backing implementation of set types.
 
@@ -29,7 +47,6 @@
 * `cty`: It's now possible to use capsule types in the elements of sets. Previously `cty` would panic if asked to construct a value of a set type whose element type either is or contains a capsule type, but there is now explicit support for storing encapsulated values in sets and optional (but recommended) support for a custom hashing function per type in order to improve performance for sets with a large number of elements.
 * `convert`: Unify will no longer panic when asked to find a common base type for a tuple type and a list of unknown element type, and will instead just signal that such a unification is not possible. ([#126](https://github.com/zclconf/go-cty/pull/126))
 * `stdlib`: `FlattenFunc` will no longer panic if it encounters a null value of a type that would normally be subject to flattening. Instead, it will treat it in the same way as a null value of any non-flattenable type. ([#129](https://github.com/zclconf/go-cty/pull/129))
-
 
 # 1.10.0 (November 2, 2021)
 
