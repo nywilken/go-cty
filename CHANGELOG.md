@@ -1,11 +1,11 @@
-> **Note** This fork contains changes for the continued support of `encoding/gob`, which is nolonger available in the upstream project starting from v1.11.0. 
+> **Note** This fork contains changes for the continued support of `encoding/gob`, which is no longer available in the upstream project starting from v1.11.0. 
 > Gob encoding for serializing cty.Type and cty.Value is still heavily relied on by the Packer Plugin SDK.
 > 
 > The v1.11.0 changes from the upstream CHANGELOG are listed below for users to understand what changed upstream but has been struck from this fork's CHANGELOG to denote that the changes have been reverted. 
 >
 > The following tags with support for `encoding/gob` have been recreated in this fork v1.11.0, v1.11.1, v1.12.0, and v1.12.1
 
-Jump to [v1.11.0](https://github.com/nywilken/go-cty/edit/main/CHANGELOG.md#1110-august-22-2022) for more details.
+Jump to [v1.11.0](https://github.com/nywilken/go-cty/blob/main/CHANGELOG.md#1110-august-22-2022) for more details.
 
 # 1.12.1 (November 8, 2022)
 
