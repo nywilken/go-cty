@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 > **Note** This fork contains changes for the continued support of `encoding/gob`, which is no longer available in the upstream project starting from v1.11.0. 
 > Gob encoding for serializing cty.Type and cty.Value is still heavily relied on by the Packer Plugin SDK.
 > 
@@ -7,6 +6,12 @@
 > The following tags with support for `encoding/gob` have been recreated in this fork v1.11.0, v1.11.1, v1.12.0, and v1.12.1
 
 Jump to [v1.11.0](https://github.com/nywilken/go-cty/blob/main/CHANGELOG.md#1110-august-22-2022) for more details.
+
+# 1.13.3 (August 24, 2023)
+
+* `msgpack`: As a compromise to avoid unbounded memory usage for a situation that some callers won't take advantage of anyway, the MessagePack decoder has a maximum length limit on encoded unknown value refinements. For consistency, the encoder will now truncate string prefix refinements if necessary to avoid making the encoded refinements too long. ([#167](https://github.com/zclconf/go-cty/pull/167))
+
+    This is consistent with the documented conventions for serializing refinements -- that we can potentially lose detail through serialization -- but in this case we are still able to preserve shorter string prefixes, whereas other serializations tend to just discard refinement information altogether.
 
 # 1.13.2 (May 22, 2023)
 
